@@ -1,0 +1,26 @@
+
+:root {
+  --content-width--header: 1544px;
+  --content-width: 1625px;
+  --container-offset: 48px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --container-width--header: calc(var(--content-width--header) + (var(--container-offset) * 2));
+
+}
+
+
+@media(max-width:1100px) {
+  :root {
+    --content-width--header: 320px;
+    --content-width: 320px;
+    --container-offset: 10px;
+  }
+}
+
+@media(max-width:1520px) {
+  :root {
+    --content-width--header: 1080px;
+    --content-width: 1080px;
+    --container-offset: 10px;
+  }
+}

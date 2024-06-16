@@ -1,0 +1,164 @@
+// body, html {
+//   overflow: hidden;
+// }
+
+.main-anim__section {
+  margin-right: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.main-anim__section-container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to bottom, transparent, black 100%, black 100%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.main-anim__section--mobile {
+  display: none;
+}
+
+.main-anim__section-container:not(:last-child) {
+  margin-right: 16px;
+}
+
+.main-anim__section-first {
+  display: flex;
+  flex-direction: column;
+  animation: scroll 15s linear infinite;
+}
+
+.main-anim__section-middle {
+  display: flex;
+  flex-direction: column;
+  animation: scrollMiddle 40s linear infinite;
+}
+
+.main-anim__section-last {
+  display: flex;
+  flex-direction: column;
+  animation: scrollLast 30s linear infinite;
+}
+
+.main-anim__section img {
+  width: 100px;
+  height: 100%;
+  margin: 10px 0;
+}
+
+@keyframes scroll {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollMiddle {
+  0% {
+      transform: translateY(-50%);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+@keyframes scrollLast {
+  0% {
+    transform: translateY(0);
+}
+100% {
+    transform: translateY(-50%);
+}
+}
+
+@media(max-width:1520px) {
+
+  body, html {
+    overflow-y: auto;
+  }
+
+  .main-anim__section--mobile {
+    margin-top: 58px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-anim__section {
+    display: none;
+  }
+
+  .main-anim__section-container {
+    width: 100vh;
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to bottom, transparent, black 100%, black 100%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  }
+
+  .main-anim__section-container:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  .main-anim__section--mobile img {
+    height: 50px;
+    margin: 0 10px;
+  }
+
+  .main-anim__section-first {
+    height: 55px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    animation: scroll 15s linear infinite;
+  }
+
+  .main-anim__section-middle {
+    height: 55px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    animation: scrollMiddle 40s linear infinite;
+  }
+
+  .main-anim__section-last {
+    height: 55px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    animation: scrollLast 30s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scrollMiddle {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+  }
+
+  @keyframes scrollLast {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
