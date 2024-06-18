@@ -186,9 +186,14 @@
     display: block;
   }
 
+  .header-nav__btns-lang--mobile > a {
+    height: 20px;
+  }
+
   .menu-button-container {
     display: flex;
   }
+
   .menu {
     position: absolute;
     top: 0;
@@ -206,15 +211,13 @@
     height: 0;
     padding: 0;
     border: 0;
-
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  #menu-toggle ~ .menu button {
+  #menu-toggle ~ .menu > li button {
     height: 0;
     padding: 0;
     border: 0;
-
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
@@ -227,6 +230,27 @@
     width: 300px;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
+
+  #menu-toggle:checked ~ .menu > li:nth-child(7) {
+    height: 2.5em;
+    border: 0;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+    width: 300px;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  #menu-toggle:checked ~ .menu > li:nth-child(8) {
+    height: 2.5em;
+    border: 0;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+    width: 300px;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
 
   #menu-toggle:checked ~ .menu button {
     height: 2.5em;
@@ -246,7 +270,7 @@
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  #menu-toggle:checked ~ .menu button:last-child {
+  #menu-toggle:checked ~ .menu > li:nth-child(7) button {
     height: 2.5em;
     border-radius: 24px;
     border: 0;
@@ -268,8 +292,8 @@
     display: flex;
     justify-content: start;
     padding: 0.5em 0;
-
   }
+
   .menu > button:not(:last-child) {
     margin-bottom: 5px;
   }
