@@ -80,6 +80,12 @@
   background: #311212;
 }
 
+.blub-section__list-item > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .blub-section__list-item:not(:last-child) {
   margin-bottom: 16px;
 }
