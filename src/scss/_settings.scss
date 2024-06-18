@@ -13,7 +13,10 @@ body {
   position: relative;
   background: linear-gradient(70deg, rgba(255, 105, 180, 0.6), rgba(255, 105, 180, 0) 20%),
               linear-gradient(150deg, #1a1e17, #000, #603e23);
+}
 
+a {
+  color: inherit;
 }
 
 *,

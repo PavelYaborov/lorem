@@ -1,5 +1,5 @@
 const { src, dest, series, parallel, watch } = require('gulp');
-const clean = require('gulp-clean');
+const del = require('del');
 const sass = require('gulp-sass')(require('sass'));
 const browserSync = require('browser-sync').create();
 const fileInclude = require('gulp-file-include');
@@ -12,21 +12,22 @@ const htmlmin = require('gulp-htmlmin');
 const { readFileSync } = require('fs');
 
 const paths = {
-  srcImgFolder: 'app/images',
-  srcScss: 'app/scss/**/*.scss',
-  srcFullJs: 'app/js/**/*.js',
-  srcPartialsFolder: 'app/partials',
-  srcFolder: 'app',
-  resourcesFolder: 'app/resources',
-  buildImgFolder: 'docs/images',
+  srcImgFolder: 'src/img',
+  srcScss: 'src/scss/**/*.scss',
+  srcFullJs: 'src/js/**/*.js',
+  srcPartialsFolder: 'src/partials',
+  srcFolder: 'src',
+  resourcesFolder: 'src/resources',
+  buildImgFolder: 'docs/img',
   buildCssFolder: 'docs/css',
+  buildJsFolder: 'docs/js',
+  buildResourcesFolder: 'docs/resources'
 };
 
 const buildFolder = 'docs';
 
 const cleanDocs = () => {
-  return src(buildFolder, { read: false, allowEmpty: true })
-    .pipe(clean());
+  return del(buildFolder);
 };
 
 const styles = () => {
@@ -38,13 +39,13 @@ const styles = () => {
 
 const scripts = () => {
   return src(paths.srcFullJs)
-    .pipe(dest(buildFolder + '/js'))
+    .pipe(dest(paths.buildJsFolder))
     .pipe(browserSync.stream());
 };
 
 const resources = () => {
   return src(paths.resourcesFolder + '/**/*')
-    .pipe(dest(buildFolder + '/resources'))
+    .pipe(dest(paths.buildResourcesFolder))
     .pipe(browserSync.stream());
 };
 
@@ -135,6 +136,6 @@ const toProd = (done) => {
 
 exports.default = series(cleanDocs, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, watchFiles);
 
-exports.build = series(toProd, cleanDocs, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, htmlMinify, watchFiles);
+exports.build = series(toProd, cleanDocs, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, htmlMinify);
 
 exports.cache = series(cache, rewrite);
