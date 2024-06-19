@@ -43,21 +43,21 @@
 /* stylelint-disable value-keyword-case */
 @font-face {
   font-family: "Lexend";
-  src: url("../fonts/../fonts/Lexend-Regular.woff2") format("woff2");
+  src: url("../fonts/../resources/fonts/Lexend-Regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Lexend";
-  src: url("../fonts/../fonts/Lexend-Medium.woff2") format("woff2");
+  src: url("../fonts/../resources/fonts/Lexend-Medium.woff2") format("woff2");
   font-weight: 500;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Lexend";
-  src: url("../fonts/../fonts/Lexend-SemiBold.woff2") format("woff2");
+  src: url("../fonts/../resources/fonts/Lexend-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-display: swap;
   font-style: normal;
@@ -564,10 +564,6 @@ a {
     font-size: 18px;
   }
 }
-body, html {
-  overflow: hidden;
-}
-
 .main-anim__section {
   margin-right: 64px;
   display: flex;
@@ -577,7 +573,7 @@ body, html {
 }
 
 .main-anim__section-container {
-  height: 100vh;
+  height: 60vh;
   overflow: hidden;
   position: relative;
   mask-image: linear-gradient(to bottom, transparent, black 100%, black 100%, transparent);
@@ -862,7 +858,6 @@ body, html {
   }
 }
 .footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
   border-left: 4px solid #f97247;

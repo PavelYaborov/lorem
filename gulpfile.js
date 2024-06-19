@@ -55,6 +55,7 @@ const images = () => {
     .pipe(browserSync.stream());
 };
 
+
 const svgSprites = () => {
   return src(paths.srcImgFolder + '/**/*.svg')
     .pipe(dest(paths.buildImgFolder));
@@ -79,6 +80,12 @@ const htmlInclude = () => {
     .pipe(browserSync.stream());
 };
 
+const fonts = () => {
+  return src('src/resources/fonts/**/*')
+    .pipe(dest('docs/resources/fonts'))
+    .pipe(browserSync.stream());
+};
+
 const watchFiles = () => {
   browserSync.init({
     server: {
@@ -97,7 +104,7 @@ const watchFiles = () => {
 };
 
 const cache = () => {
-  return src(`${buildFolder}/**/*.{css,js,svg,png,jpg,jpeg,webp,ttf}, {
+  return src(`${buildFolder}/**/*.{css,js,svg,png,jpg,jpeg,webp,woff2}, {
       base: buildFolder
     }`)
     .pipe(rev())
@@ -134,8 +141,8 @@ const toProd = (done) => {
   done();
 };
 
-exports.default = series(cleanDocs, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, watchFiles);
+exports.default = series(cleanDocs, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, watchFiles, fonts);
 
-exports.build = series(toProd, cleanDocs, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, htmlMinify);
+exports.build = series(toProd, cleanDocs, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, htmlMinify, fonts);
 
 exports.cache = series(cache, rewrite);

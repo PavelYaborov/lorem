@@ -1,7 +1,3 @@
-body, html {
-  overflow: hidden;
-}
-
 .main-anim__section {
   margin-right: 64px;
   display: flex;
@@ -11,7 +7,7 @@ body, html {
 }
 
 .main-anim__section-container {
-  height: 100vh;
+  height: 60vh;
   overflow: hidden;
   position: relative;
   mask-image: linear-gradient(to bottom, transparent, black 100%, black 100%, transparent);
